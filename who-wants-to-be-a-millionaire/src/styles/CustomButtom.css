@@ -1,0 +1,10 @@
+.custom-button button{
+    background-color: transparent;
+    color: aliceblue;
+    box-sizing: border-box;
+    padding: 1em;
+
+    border-radius: 25%;
+    border-color: #FFD700;
+    font-size: large;
+}
