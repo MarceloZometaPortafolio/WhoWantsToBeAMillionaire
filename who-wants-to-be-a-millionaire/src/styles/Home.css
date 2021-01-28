@@ -1,8 +1,13 @@
 .HomePage{    
-    color: aliceblue;
+    color: aliceblue;    
+    text-align: center;
     vertical-align: middle;
+
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 h1{
-    color: red;
+    color: aliceblue;
 }
