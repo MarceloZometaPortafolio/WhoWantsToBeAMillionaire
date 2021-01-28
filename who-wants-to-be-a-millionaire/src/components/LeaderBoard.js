@@ -1,6 +1,7 @@
 import React from 'react'
+import '../styles/LeaderBoard.css'
 
-const Leaderboard = () => {
+const LeaderBoard = () => {
     return(
         <div>
             <h3>Work in progress</h3>
@@ -8,4 +9,4 @@ const Leaderboard = () => {
     );
 }
 
-export default Leaderboard;
+export default LeaderBoard;

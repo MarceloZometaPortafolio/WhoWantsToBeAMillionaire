@@ -7,7 +7,7 @@ import {
 
 import Home from './components/Home'
 import NavBar from './components/NavBar';
-import Leaderboard from './components/LeaderBoard';
+import LeaderBoard from './components/LeaderBoard';
 
 // if (window.history.state) {
 //   window.history.pushState(state, title, href);
@@ -21,8 +21,8 @@ function App() {
       </div>
       
       <Switch>
-        <Route path="/" component={Home}/>   
-        <Route path='/leaderboard' component={Leaderboard}/>     
+        <Route exact path="/" component={Home}/>   
+        <Route exact path="/leaderboard" component={LeaderBoard}/>     
       </Switch>
     </Router>
   );
