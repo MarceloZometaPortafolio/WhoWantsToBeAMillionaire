@@ -13,6 +13,8 @@ import { TextField } from '@material-ui/core';
 function Home () {
     const [openDialog, setOpenDialog] = React.useState(false);
     const [name, setName] = React.useState("");
+    const [helperText, setHelperText] = React.useState("");
+
     const history = useHistory();
 
     const LeaderboardAction = () => {
@@ -21,17 +23,32 @@ function Home () {
 
     const StartGameAction = () => {
         setOpenDialog(true);
-
-
+    }
+    
+    const handleNameChange = (e) => {
+        setName(e.target.value);  
+        setHelperText("");      
     }
 
-    const handleCloseDialog = () => {
-        console.log(`The name registered is ${name}`);
+    const handleCancelDialogButton = () => {
+        setName("");
         setOpenDialog(false);
     }
 
-    const handleNameChange = (e) => {
-        setName(e.target.value);
+    const handleCloseDialog = () => {
+        if(name.length < 1){
+            console.log("Invalid name length")
+            setHelperText("Please input a name to continue");
+        }
+        else{
+            console.log(`The name registered is ${name}`);
+            setOpenDialog(false);
+    
+            history.push({
+                pathname: '/game',
+                state: {question: '1'}
+            });
+        }
     }
 
     return (
@@ -50,14 +67,15 @@ function Home () {
                         autoFocus
                         margin='dense'
                         id='name'
-                        required='true'
-                        value={name}
-                        onChange={handleNameChange}
                         label='Name'
+                        value={name}
+                        helperText={helperText}
+                        required={true}
+                        onChange={handleNameChange}
                         fullWidth
                     />
                     <DialogActions>
-                        <button onClick={handleCloseDialog}>
+                        <button onClick={handleCancelDialogButton}>
                             Cancel
                         </button>
                         <button onClick={handleCloseDialog}>
