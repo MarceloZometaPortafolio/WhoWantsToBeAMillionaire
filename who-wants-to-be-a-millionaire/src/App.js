@@ -8,6 +8,7 @@ import {
 import Home from './components/Home'
 import NavBar from './components/NavBar';
 import LeaderBoard from './components/LeaderBoard';
+import Game from './components/Game';
 
 // if (window.history.state) {
 //   window.history.pushState(state, title, href);
@@ -22,7 +23,8 @@ function App() {
       
       <Switch>
         <Route exact path="/" component={Home}/>   
-        <Route exact path="/leaderboard" component={LeaderBoard}/>     
+        <Route exact path="/leaderboard" component={LeaderBoard}/>
+        <Route exact path="/game" component={Game}/>     
       </Switch>
     </Router>
   );
