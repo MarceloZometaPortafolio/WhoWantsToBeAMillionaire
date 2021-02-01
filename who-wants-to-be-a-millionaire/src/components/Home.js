@@ -8,9 +8,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { TextField } from '@material-ui/core';
 
 function Home () {
     const [openDialog, setOpenDialog] = React.useState(false);
+    const [name, setName] = React.useState("");
     const history = useHistory();
 
     const LeaderboardAction = () => {
@@ -24,8 +26,12 @@ function Home () {
     }
 
     const handleCloseDialog = () => {
-        console.log("I was clicked!")
+        console.log(`The name registered is ${name}`);
+        setOpenDialog(false);
+    }
 
+    const handleNameChange = (e) => {
+        setName(e.target.value);
     }
 
     return (
@@ -38,8 +44,18 @@ function Home () {
                 <DialogTitle>Start new game!</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        I am dialog box!
+                        Please enter your name for the new game:
                     </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin='dense'
+                        id='name'
+                        required='true'
+                        value={name}
+                        onChange={handleNameChange}
+                        label='Name'
+                        fullWidth
+                    />
                     <DialogActions>
                         <button onClick={handleCloseDialog}>
                             Cancel
