@@ -1,17 +1,16 @@
 'use strict';
 
+const { response } = require('express');
 const express = require('express');
 const app = express();
 const dataService = require('./DataService/dataService')
 const port = 8000;
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   var myData = new dataService.DataService();
   myData.greet();
-  myData.readQuestions();
-
-  res.json({message: 'Hello World!'});
-
+  
+  res.json({"message": "Hello world!"});
 });
  
 app.listen(port, () => {
