@@ -6,6 +6,8 @@ const port = 8000;
 app.get('/', (req, res) => {
   var myData = new dataService.DataService();
   myData.greet();
+  myData.readQuestions();
+
   res.json({message: 'Hello World!'});
 
 });
