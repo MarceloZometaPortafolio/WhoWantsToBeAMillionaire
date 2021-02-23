@@ -1,20 +1,16 @@
 import path from "./questions.json";
 
  function readAllQuestions(){
-    return new Promise((resolve, reject) => {
-        const loadData = () => JSON.parse(JSON.stringify(path));
-        console.log(loadData);
-        return loadData;
-        // fs.readFile(path, 'utf8', (err, data) => {
-        //     if(err){
-        //         reject(err);
-        //     }
-        //     else{
-        //         let questions = JSON.parse(data);
-        //         resolve(data);
-        //     }
-        // })}
-    });  
+    try{
+        const jsonString = JSON.stringify(path);
+        const questions = JSON.parse(jsonString);
+
+        console.log("These are the questions", questions);
+        return questions;    
+    }
+    catch(err){
+        console.log("Error found", err);
+    }
   }
 
-export default readAllQuestions();
+export default readAllQuestions;

@@ -11,16 +11,7 @@ function Game({props}) {
 
     useEffect(() => {
         setShowProgress(true);
-        console.log(showProgress);
-
-        try{
-            const jsonString = JSON.stringify(path);
-            const questions = JSON.parse(jsonString);
-            console.log("These are the questions", questions);    
-        }
-        catch(err){
-            console.log("Error found", err);
-        }
+        readAllQuestions();
     }, [])
 
     return(
