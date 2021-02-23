@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import {useLocation} from "react-router-dom";
 import axios from 'axios';
+import readAllQuestions from '../data_service/DataService';
+import path from "../data_service/questions.json";
 
 function Game({props}) {
     const location = useLocation();
@@ -11,11 +13,14 @@ function Game({props}) {
         setShowProgress(true);
         console.log(showProgress);
 
-        axios.get('localhost:8000/')
-            .then(data => {
-                console.log(data);
-            })
-            .catch(err => console.log(err))        
+        try{
+            const jsonString = JSON.stringify(path);
+            const questions = JSON.parse(jsonString);
+            console.log("These are the questions", questions);    
+        }
+        catch(err){
+            console.log("Error found", err);
+        }
     }, [])
 
     return(
