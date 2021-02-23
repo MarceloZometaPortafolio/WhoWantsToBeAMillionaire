@@ -1,23 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useLocation} from "react-router-dom";
 
-function Game() {
+function Game({props}) {
+    const location = useLocation();
+
     const [showProgress, setShowProgress] = React.useState(true);    
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowProgress(false);
-        }, 3000);
+    useEffect(() => {
+        setShowProgress(true);
 
-        return () => {
-            clearTimeout(timer);
-        }
     }, [])
 
     return(
         <div className="Game">
-            <h1>message</h1>
+            <h1>Question {location.state.question}</h1>
             
-            if(showProgress){
+            if(this.showProgress){
                 <p>I'm showing the questions!</p>
             }
         </div>
