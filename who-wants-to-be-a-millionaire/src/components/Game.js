@@ -12,8 +12,11 @@ function Game({props}) {
 
     useEffect(() => {
         setShowProgress(true);
-        setQuestions(readAllQuestions());
-        console.log(questions);
+        //setQuestions(readAllQuestions());
+        readAllQuestions().then(data => {
+            setQuestions(data);
+            console.log("On game, questions are:", questions.game[0]);
+        })
             // .then(data => {
             //     console.log(data); 
             //     setQuestions(data);
@@ -26,8 +29,6 @@ function Game({props}) {
     return(
         <div className="Game">
             <h1>Question {location.state.question}</h1>
-            
-            <h1></h1>
         </div>
     );
 }
