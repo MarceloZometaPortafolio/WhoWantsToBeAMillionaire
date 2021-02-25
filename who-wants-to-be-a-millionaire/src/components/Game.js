@@ -13,10 +13,12 @@ function Game({props}) {
     useEffect(() => {
         setShowProgress(true);
         //setQuestions(readAllQuestions());
-        readAllQuestions().then(data => {
-            setQuestions(data);
-            console.log("On game, questions are:", questions.game[0]);
-        })
+        readAllQuestions()
+            .then(data => {
+                setQuestions(data);
+                console.log("On game, questions are:", questions.game[0]);
+            })
+            .catch(err => console.log("Couldn't read the questions properly", err));
             // .then(data => {
             //     console.log(data); 
             //     setQuestions(data);
