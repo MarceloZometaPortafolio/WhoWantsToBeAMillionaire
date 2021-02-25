@@ -4,6 +4,7 @@ import axios from 'axios';
 import readAllQuestions from '../data_service/DataService';
 import path from "../data_service/questions.json";
 import { Suspense } from 'react';
+import CustomButton from './CustomButton';
 
 function Game({props}) {
     const location = useLocation();
@@ -42,21 +43,17 @@ function Game({props}) {
     return(
         <div className="Game">
             <h1>Question {location.state.question}</h1>
-            <h1>You have loaded {questions?.game[0].question}</h1>
-            
-            {/* if (isEmpty(questions) ) {
-                <h1>Loading....</h1>
-            }
-            else {
-            } */}
 
-            {/* <Suspense fallback={<p>Loading...</p>}>
-                if (questions == null) {
-                    <h1>Loading!</h1>
-                }
-                else{
-                }
-            </Suspense> */}
+            {/* {questions?.game ?? } */}
+            {/*Use the ?. to safely load an element that could be null*/}
+            <h1>{questions?.game[0].question}</h1>
+            {/* <div className="Answers">
+                {questions?.game[0].answer.map(answer =>
+                    <div key={answer}>
+                        <CustomButton message={answer}/>
+                    </div>
+                )}
+            </div> */}
         </div>
     );
 }
